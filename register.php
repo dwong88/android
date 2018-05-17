@@ -1,44 +1,28 @@
 <?php
 include "koneksi.php";
-/*$name = $_POST['name'];
+//print_r($_POST);
+$name = $_POST['user_name'];
 $surname = $_POST['surname'];
 $age = $_POST['age'];
-$username = $_POST['user_name'];
-$password = $_POST['password'];*/
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-
-//Mendapatkan Nilai Variable
-$name = 'David';
-$desg = 'David';
-$sal = 1000;
-
-//Pembuatan Syntax SQL
-echo $sql = "INSERT INTO tb_pegawai (nama,posisi,gajih) VALUES ('$name','$desg','$sal')";
-
-if(mysqli_query($koneksi,$sql)){
-  echo 'Berhasil Menambahkan Pegawai';
-}else{
-  echo 'Gagal Menambahkan Pegawai';
-}
-
-$name = 'David';
-$surname = 'Wong';
+/*
+$name = 'Dave';
+$surname = 'Dave';
 $age = '11';
-$username = 'David123';
-$password = 'David123';
+$username = 'Dave';
+$password = '12312';*/
 
 //$data = mysqli_query($koneksi,"insert into employee_data (name,surname,age,username,password) values('".$name."','".$surname."','".$age."','".$user_name."','".$password."');");
 
-$mysql_qry = "insert into employee_data (id,name,surname,age,username,password) values('','".$name."','".$surname."','".$age."','".$user_name."','".$password."');";
+$mysql_qry = "insert into employee_data (name,surname,age,username,password) values('".$name."','".$surname."','".$age."','".$username."','".$password."');";
 
-$data = mysqli_query($koneksi,"select * from employee_data where username ='".$user_name."' and password='".$user_pass."';");
-
-
-
+$data = mysqli_query($koneksi,$mysql_qry);
 
 
 //echo ("select * from employee_data where username ='".$user_name."' and password='".$user_pass."';");
-if($koneksi->query($mysql_qry)===TRUE){
+if($data===TRUE){
   //echo mysqli_num_rows($data);
   echo "INSERT success";
 }
